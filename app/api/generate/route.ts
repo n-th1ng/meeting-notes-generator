@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 const MINIMAX_API_KEY = process.env.MINIMAX_API_KEY || 'sk-cp-BWsocdbi6Ge7f4-bArnQtQX4TscgcMp48RsnRzywTV5J0j1H3d-jG96YZnSnzRNjB58tP9q76ImQhrLw7RpbP_AgA-tqQmGcEOed_zXQUhhca2Eq2hxC_OU';
-const MINIMAX_API_URL = 'https://api.minimax.io/v1/text/chatcompletion_v2';
+const MINIMAX_API_URL = 'https://api.minimax.io/v1/chat/completions';
 
 const PROMPTS = {
   markdown: `You are a meeting notes analyst. Analyze the following transcript and create structured markdown notes with:
@@ -74,7 +74,7 @@ export async function POST(req: NextRequest) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'MiniMax-Text-01',
+        model: 'MiniMax-M2.7',
         messages: [
           {
             role: 'user',
