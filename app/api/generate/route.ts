@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const MINIMAX_API_KEY = process.env.MINIMAX_API_KEY || 'sk-cp-BWsocdbi6Ge7f4-bArnQtQX4TscgcMp48RsnRzywTV5J0j1H3d-jG96YZnSnzRNjB58tP9q76ImQhrLw7RpbP_AgA-tqQmGcEOed_zXQUhhca2Eq2hxC_OU';
+const MINIMAX_API_KEY = process.env.MINIMAX_API_KEY;
+if (!MINIMAX_API_KEY) {
+  throw new Error('MINIMAX_API_KEY environment variable is not set');
+}
 const MINIMAX_API_URL = 'https://api.minimax.io/v1/chat/completions';
 
 const PROMPTS = {
